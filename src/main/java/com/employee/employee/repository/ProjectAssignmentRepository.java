@@ -6,10 +6,9 @@ import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
-import com.employee.employee.models.Role;
+import com.employee.employee.models.ProjectAssignment;
 
 @Repository
-public interface RoleRepository extends MongoRepository<Role,ObjectId> {
-    Optional<Role> findByTitle(String title);
-    Optional<Role> findById(ObjectId id);
+public interface ProjectAssignmentRepository extends MongoRepository<ProjectAssignment,ObjectId> {
+    Optional<ProjectAssignment> findById(ObjectId id);
 }

@@ -11,4 +11,5 @@ import com.employee.employee.models.Department;
 @Repository
 public interface DepartmentRepository extends MongoRepository<Department, ObjectId> {
     Optional<Department> findByName(String name);
+    Optional<Department> findById(ObjectId id);
 }

@@ -3,16 +3,25 @@ package com.employee.employee.models;
 import java.time.LocalDate;
 
 import org.bson.types.ObjectId;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import jakarta.validation.constraints.NotNull;
 
 @Document(collection = "projects")
 public class Project {
     private ObjectId id;
+    @NotNull
     private String name;
     private String description;
+    @NotNull
     private LocalDate startDate;
+    @NotNull
     private LocalDate endDate;
+    @NotNull
     private double budget;
+
+    @DBRef
     private Employee[] teamMembers;
 
     public ObjectId getId(){
@@ -35,6 +44,9 @@ public class Project {
     }
     public Employee[] getTeamMembers(){
         return teamMembers;
+    }
+    public void setId(ObjectId Id){
+        this.id = Id;
     }
     public void setName(String name){
         this.name = name;

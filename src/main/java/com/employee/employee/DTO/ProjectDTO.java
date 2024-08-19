@@ -2,21 +2,32 @@ package com.employee.employee.DTO;
 
 import java.time.LocalDate;
 
-import org.bson.types.ObjectId;
 
-import com.employee.employee.models.Employee;
 
 public class ProjectDTO {
-    private ObjectId id;
+    private String id;
     private String name;
     private String description;
     private LocalDate startDate;
     private LocalDate endDate;
     private double budget;
-    private Employee[] teamMembers;
+    private String[] teamMemberIds;
 
-    public ObjectId getId() {
+    public ProjectDTO(String id, String name, String description, LocalDate startDate, LocalDate endDate, double budget) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.budget = budget;
+    }
+
+    public String getId() {
         return id;
+    }
+
+    public void setId(String Id){
+        this.id = Id;
     }
 
     public String getName() {
@@ -59,11 +70,11 @@ public class ProjectDTO {
         this.budget = budget;
     }
 
-    public Employee[] getTeamMembers() {
-        return teamMembers;
+    public String[] getTeamMemberIds() {
+        return teamMemberIds;
     }
 
-    public void setTeamMembers(Employee[] teamMembers) {
-        this.teamMembers = teamMembers;
+    public void setTeamMemberIds(String[] teamMemberIds) {
+        this.teamMemberIds = teamMemberIds;
     }
 }

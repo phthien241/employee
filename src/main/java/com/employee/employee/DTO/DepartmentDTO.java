@@ -1,16 +1,15 @@
 package com.employee.employee.DTO;
 
-import org.bson.types.ObjectId;
-
-import com.employee.employee.models.Employee;
-
 public class DepartmentDTO {
-    private ObjectId id;
+    private String id;
     private String name;
     private String location;
-    private Employee[] employees;
-    public ObjectId getId() {
+    private String[] employeeIds;
+    public String getId() {
         return id;
+    }
+    public void setId(String id){
+        this.id = id;
     }
 
     public String getName() {
@@ -29,11 +28,11 @@ public class DepartmentDTO {
         this.location = location;
     }
 
-    public Employee[] getEmployees() {
-        return employees;
+    public String[] getEmployees() {
+        return employeeIds;
     }
 
-    public void setEmployees(Employee[] employees) {
-        this.employees = employees;
+    public void setEmployees(String[] employeeIds) {
+        this.employeeIds = employeeIds;
     }
 }

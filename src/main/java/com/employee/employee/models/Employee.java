@@ -26,6 +26,18 @@ public class Employee {
     @DBRef
     private Project[] projectAssigments;
 
+    public Employee(ObjectId id, String firstname, String lastName, String email, Department department, Role role, double salary, LocalDate localDate, Project[] projectAssignments) {
+        this.id = id;
+        this.firstname = firstname;
+        this.lastName = lastName;
+        this.email = email;
+        this.department = department;
+        this.role = role;
+        this.salary = salary;
+        this.localDate = localDate;
+        this.projectAssigments = projectAssignments;
+    }
+
     public ObjectId getId(){
         return id;
     }
@@ -46,6 +58,9 @@ public class Employee {
     }
     public double getSalary(){
         return salary;
+    }
+    public void setId(ObjectId id){
+        this.id = id;
     }
     public void setFirstName(String firstname){
         this.firstname = firstname;

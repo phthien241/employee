@@ -10,5 +10,6 @@ import com.employee.employee.models.Project;
 
 @Repository
 public interface ProjectRepository extends MongoRepository<Project,ObjectId> {
+    Optional<Project> findById(String id);
     Optional<Project> findByName(String name);
 }

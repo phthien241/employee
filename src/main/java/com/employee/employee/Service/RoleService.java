@@ -2,6 +2,7 @@ package com.employee.employee.Service;
 
 import java.util.Optional;
 
+import org.bson.types.ObjectId;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,10 @@ public class RoleService {
 
     @Autowired
     private RoleRepository roleRepository;
+
+    public Optional<Role> getById(ObjectId id){
+        return roleRepository.findById(id);
+    }
 
     public Optional<Role> getByTitle(String title){
         return roleRepository.findByTitle(title);
