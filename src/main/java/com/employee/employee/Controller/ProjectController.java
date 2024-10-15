@@ -40,9 +40,5 @@ public class ProjectController {
         return ResponseEntity.ok(message);
     }
 
-    @PutMapping("/assign")
-    public ResponseEntity<String> assignEmployee(@RequestBody String[] employeeId, String projectId,String roleId){
-        String message = projectService.assignProject(employeeId, projectId, roleId);
-        return ResponseEntity.ok(message);
-    }
+  
 }

@@ -8,7 +8,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.employee.employee.DTO.DepartmentDTO;
-import com.employee.employee.Exception.EmployeeNotFoundException;
+// import com.employee.employee.Exception.EmployeeNotFoundException;
 import com.employee.employee.models.Department;
 import com.employee.employee.models.Employee;
 import com.employee.employee.repository.DepartmentRepository;
@@ -19,8 +19,8 @@ import jakarta.validation.ConstraintViolationException;
 public class DepartmentService {
     @Autowired
     private DepartmentRepository departmentRepository;
-    @Autowired
-    private EmployeeService employeeService;
+    // @Autowired
+    // private EmployeeService employeeService;
 
     public Optional<Department> getDepartmentById(ObjectId id){
         return departmentRepository.findById(id);
@@ -72,7 +72,7 @@ public class DepartmentService {
             Employee[] employees = new Employee[departmentDTO.getEmployees().length];
             for(int i = 0; i < employees.length;i++){
                 ObjectId id = new ObjectId(departmentDTO.getEmployees()[i]);
-                employees[i] = employeeService.getEmployeeById(id).orElseThrow(()->new EmployeeNotFoundException("Employee not found"));
+                // employees[i] = employeeService.getEmployeeById(id).orElseThrow(()->new EmployeeNotFoundException("Employee not found"));
             }
             department.setEmployees(employees);
         }

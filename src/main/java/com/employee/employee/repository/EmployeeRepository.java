@@ -13,9 +13,9 @@ import java.util.List;
 @Repository
 public interface EmployeeRepository extends MongoRepository<Employee,ObjectId>{
     Optional<Employee> findById(ObjectId id);
+    Optional<Employee> findByDriverLicenseId(String id);
     Optional<Employee> findByEmail(String email);
     List<Employee> findByDepartment_Id(ObjectId departmentId);
     List<Employee> findByRole_Id(ObjectId roleId);
-    List<Employee> findByProjectAssigments_Id(ObjectId projectId);
 
 }

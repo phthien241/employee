@@ -65,19 +65,6 @@ public class ProjectService {
         return "Update project successfully";
     }
 
-    public String assignProject(String[] employeeId, String projectId, String roleId) throws EmployeeNotFoundException, ProjectNotFoundException, RoleNotFoundException{
-        Project project = projectRepository.findById(new ObjectId(projectId)).orElseThrow(()->new ProjectNotFoundException("No project found"));
-        Role role = roleService.getById(new ObjectId(roleId)).orElseThrow(()->new RoleNotFoundException("No role found"));
-        for(String id : employeeId){
-            Employee employee = employeeService.getEmployeeById(new ObjectId(id)).orElseThrow(()->new EmployeeNotFoundException("No employee found"));
-            List<Project> projects = Arrays.asList(employee.getProjectAssigments());
-            projects.add(project);
-            employee.setProjectAssignments(projects.toArray(new Project[0]));
-            ProjectAssignment projectAssignment = new ProjectAssignment(employee, project, LocalDate.now(), role);
-            projectAssigmentService.createProjectAssignment(projectAssignment);
-        }
-        return "Assign project successfully";
-    }
 
     public ProjectDTO toDTO(Project project) {
         ProjectDTO dto = new ProjectDTO(project.getId().toHexString(), project.getName(), project.getDescription(),

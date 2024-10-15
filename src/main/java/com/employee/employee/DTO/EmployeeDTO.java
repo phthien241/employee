@@ -6,6 +6,7 @@ import java.time.LocalDate;
 
 public class EmployeeDTO {
     private String id;
+    private String driverLicenseId;
     private String firstname;
     private String lastName;
     private String email;
@@ -15,11 +16,12 @@ public class EmployeeDTO {
     private LocalDate localDate;
     private String[] projectAssigmentIds;
     public EmployeeDTO() {
-        // Default constructor
+        
     }
 
-    public EmployeeDTO(String id, String firstname, String lastName, String email, String departmentId, String roleId, double salary, LocalDate localDate, String[] projectAssigmentIds) {
+    public EmployeeDTO(String id, String driverLicenseId, String firstname, String lastName, String email, String departmentId, String roleId, double salary, LocalDate localDate, String[] projectAssigmentIds) {
         this.id = id;
+        this.driverLicenseId = driverLicenseId;
         this.firstname = firstname;
         this.lastName = lastName;
         this.email = email;
@@ -34,8 +36,16 @@ public class EmployeeDTO {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(String id){
         this.id = id;
+    }
+
+    public String getDriverLicenseId(){
+        return driverLicenseId;
+    }
+
+    public void setDriverLicenseId(String driverLicenseId){
+        this.driverLicenseId = driverLicenseId;
     }
 
     public String getFirstname() {
